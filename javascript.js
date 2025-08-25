@@ -32,7 +32,7 @@ Else If Tie:
 */
 
 function getComputerChoice() {
-    let num = Math.ceil(Math.random()*3);
+    let num = Math.ceil((Math.random()*3) + 0.00001);
     let choice;
     if (num === 1) {
         choice = 'rock';
