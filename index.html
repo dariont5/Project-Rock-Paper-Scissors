@@ -8,24 +8,33 @@
 </head>
 <body>
     <h1>Rock Paper Scissors</h1>
-    <div class="buttons">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+    <div class="center">
+        <div class="buttons">
+            <button>Rock</button>
+            <button>Paper</button>
+            <button>Scissors</button>
+        </div>
+        <div class="scoreboard">
+            <div class="score player">
+                <h3>Player</h3>
+                <div class="player-score"></div>
+            </div>
+            <div class="score tie">
+                <h3>Tie</h3>
+                <div class="tie-score"></div>
+            </div>
+            <div class="score computer">
+                <h3>Computer</h3>
+                <div class="computer-score"></div>
+            </div>
+        </div>
     </div>
-    <div class="scoreboard">
-        <div class="score player">
-            <h3>Player</h3>
-            <div class="player-score"></div>
+    <div class="log">
+        <div class="round-counter">
+            Current round: 
+            <span class="current round"></span>
         </div>
-        <div class="score tie">
-            <h3>Tie</h3>
-            <div class="tie-score"></div>
-        </div>
-        <div class="score computer">
-            <h3>Computer</h3>
-            <div class="computer-score"></div>
-        </div>
+        <div class="round-results"></div>
     </div>
     <script src="javascript.js"></script>
 </body>
