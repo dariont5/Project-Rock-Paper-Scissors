@@ -61,7 +61,6 @@ function playRound(choice) {
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice(choice);
     const roundChoices = `player: ${humanChoice}, computer: ${computerChoice}`
-    const container = document.querySelector('.round-results')
     const roundChoiceContainer = document.createElement('p');
     roundChoiceContainer.textContent = roundChoices;
     container.appendChild(roundChoiceContainer);
@@ -117,9 +116,11 @@ function playGame() {
 }
 
 function reset() {
-    playerScore.textContent, tieScore.textContent, computerScore.textContent = 0, 0, 0;
+    [playerScore.textContent, tieScore.textContent, computerScore.textContent] = [0, 0, 0];
+    [container.textContent, roundCounter.textContent] = ['',''];
 }
 
+const container = document.querySelector('.round-results')
 const playerScore = document.querySelector('.player-score');
 const tieScore = document.querySelector('.tie-score');
 const computerScore = document.querySelector('.computer-score');
@@ -136,16 +137,20 @@ buttons.forEach(button => {
             counter++
             playerScore.textContent = counter;
             if (counter === 5) {
-                setTimeout(() => alert('You Won!'), 50);
-                reset();
+                setTimeout(() => {
+                    alert('You Won!')
+                    reset();
+                }, 50);
             }
         } else if (dummy === 'computer') {
             let counter = +computerScore.textContent
             counter++
             computerScore.textContent = counter;
             if (counter === 5) {
-                setTimeout(() => alert('You Lost:('), 50);
-                reset();
+                setTimeout(() => {
+                    alert('You Lost:(')
+                    reset();
+                }, 50);
             }
         } else if (dummy === 'tie') {
             let counter = +tieScore.textContent
