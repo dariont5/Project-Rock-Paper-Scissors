@@ -116,6 +116,10 @@ function playGame() {
     }
 }
 
+function reset() {
+    playerScore.textContent, tieScore.textContent, computerScore.textContent = 0, 0, 0;
+}
+
 const playerScore = document.querySelector('.player-score');
 const tieScore = document.querySelector('.tie-score');
 const computerScore = document.querySelector('.computer-score');
@@ -132,14 +136,16 @@ buttons.forEach(button => {
             counter++
             playerScore.textContent = counter;
             if (counter === 5) {
-                alert('You won!')
+                setTimeout(() => alert('You Won!'), 50);
+                reset();
             }
         } else if (dummy === 'computer') {
             let counter = +computerScore.textContent
             counter++
             computerScore.textContent = counter;
             if (counter === 5) {
-                alert('You Lost:(')
+                setTimeout(() => alert('You Lost:('), 50);
+                reset();
             }
         } else if (dummy === 'tie') {
             let counter = +tieScore.textContent
