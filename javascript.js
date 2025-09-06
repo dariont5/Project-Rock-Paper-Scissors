@@ -44,8 +44,8 @@ function getComputerChoice() {
     return choice;
 }
 
-function getHumanChoice() {
-    let choice = prompt('Please choose rock, paper, or scissors: ').toLowerCase();
+function getHumanChoice(choice) {
+    // let choice = prompt('Please choose rock, paper, or scissors: ').toLowerCase();
     if (choice === 'rock') {
         return 'rock';
     } else if (choice === 'paper') {
@@ -57,19 +57,32 @@ function getHumanChoice() {
     }
 }
 
-function playRound() {
+function playRound(choice) {
     let computerChoice = getComputerChoice();
-    let humanChoice = getHumanChoice();
-    console.log(`player: ${humanChoice}, computer: ${computerChoice}`)
+    let humanChoice = getHumanChoice(choice);
+    const roundChoices = `player: ${humanChoice}, computer: ${computerChoice}`
+    const container = document.querySelector('.round-results')
+    const roundChoiceContainer = document.createElement('p');
+    roundChoiceContainer.textContent = roundChoices;
+    container.appendChild(roundChoiceContainer);
     if ((humanChoice === 'rock' && computerChoice === 'scissors')||(humanChoice === 'paper' && computerChoice === 'rock')||(humanChoice === 'scissors' && computerChoice === 'paper')) {
-        console.log(`Nice, ${humanChoice} beats ${computerChoice}.`)
+        const roundVictor = `Nice, ${humanChoice} beats ${computerChoice}.`;
+        const roundVictorContainer = document.createElement('p');
+        roundVictorContainer.textContent = roundVictor;
+        container.appendChild(roundVictorContainer);
         return 'human'
     }
     else if ((humanChoice === 'rock' && computerChoice === 'paper')||(humanChoice === 'paper' && computerChoice === 'scissors')||(humanChoice === 'scissors' && computerChoice === 'rock')) {
-        console.log(`Loser, ${computerChoice} beats ${humanChoice}.`)
+        const roundVictor = `Loser, ${computerChoice} beats ${humanChoice}.`;
+        const roundVictorContainer = document.createElement('p');
+        roundVictorContainer.textContent = roundVictor;
+        container.appendChild(roundVictorContainer);
         return 'computer'
     } else {
-        console.log('Tie!')
+        const roundVictor = 'Tie!';
+        const roundVictorContainer = document.createElement('p');
+        roundVictorContainer.textContent = roundVictor;
+        container.appendChild(roundVictorContainer);
     }
 }
 
@@ -101,3 +114,13 @@ function playGame() {
         console.log('Tie!')
     }
 }
+
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        playRound(button.textContent.toLowerCase());
+    }
+    )
+}
+
+)
