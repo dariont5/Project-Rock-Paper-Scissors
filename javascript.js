@@ -131,10 +131,16 @@ buttons.forEach(button => {
             let counter = +playerScore.textContent
             counter++
             playerScore.textContent = counter;
+            if (counter === 5) {
+                alert('You won!')
+            }
         } else if (dummy === 'computer') {
             let counter = +computerScore.textContent
             counter++
             computerScore.textContent = counter;
+            if (counter === 5) {
+                alert('You Lost:(')
+            }
         } else if (dummy === 'tie') {
             let counter = +tieScore.textContent
             counter++
