@@ -83,6 +83,7 @@ function playRound(choice) {
         const roundVictorContainer = document.createElement('p');
         roundVictorContainer.textContent = roundVictor;
         container.appendChild(roundVictorContainer);
+        return 'tie'
     }
 }
 
@@ -115,10 +116,30 @@ function playGame() {
     }
 }
 
+const playerScore = document.querySelector('.player-score');
+const tieScore = document.querySelector('.tie-score');
+const computerScore = document.querySelector('.computer-score');
+const roundCounter = document.querySelector('.round');
 const buttons = document.querySelectorAll('button');
 buttons.forEach(button => {
     button.addEventListener('click', () => {
-        playRound(button.textContent.toLowerCase());
+        let counter = +roundCounter.textContent;
+        counter += 1;
+        roundCounter.textContent = counter;
+        let dummy = playRound(button.textContent.toLowerCase());
+        if (dummy === 'human') {
+            let counter = +playerScore.textContent
+            counter++
+            playerScore.textContent = counter;
+        } else if (dummy === 'computer') {
+            let counter = +computerScore.textContent
+            counter++
+            computerScore.textContent = counter;
+        } else if (dummy === 'tie') {
+            let counter = +tieScore.textContent
+            counter++
+            tieScore.textContent = counter;
+        }
     }
     )
 }

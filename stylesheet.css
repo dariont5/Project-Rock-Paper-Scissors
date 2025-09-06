@@ -51,6 +51,8 @@ div.score {
     width: 150px;
     text-align: center;
     border: solid black;
+    display: flex;
+    flex-direction: column;
 }
 
 h3 {
@@ -63,4 +65,14 @@ h3 {
 
 .round-results {
     padding: 10px;
+}
+
+.player-score,
+.computer-score,
+.tie-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-size: 48px;
 }
